@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Admin &#8250; Orders</title>
+<meta content="(C) 2007 aTech Media Limited. All Rights Reserved." name="copyright" />
+<!---desklamp javascript -->
+<script src="/javascripts/prototype.js?1236292113" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1236292113" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1236292113" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1236292113" type="text/javascript"></script>
+<script src="/javascripts/application.js?1236292113" type="text/javascript"></script>
+
+<!---desklamp stylesheets -->
+<link href="/stylesheets/main.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<link href="/stylesheets/merge_this.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<link href="/stylesheets/print.css?1236292113" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="/stylesheets/ie6.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/" class="dashboard">Dashboard</a></li>
+				
+				<li class=""><a href="/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/quotes" class="quotes">Quotes</a></li>
+				<li class=""><a href="/jobs" class="jobs">Jobs</a></li>
+
+				<li class="active"><a href="/invoices" class="invoices">Invoices</a></li>
+				<li class=""><a href="http://www.getdesklamp.com/help" class="help">Help</a></li>
+			</ul>
+			<p>
+				<a href="http://dan.studioextranet.com/profile">My Profile</a> | 
+				<a href="/settings">Settings</a> | 
+				<a href="/account">Account Centre</a> | 
+				<a href="/users">Users</a> | 
+				<a href="http://dan.studioextranet.com/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="active">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+
+<div class="pagetitle">
+<div class="floatright" style="margin-right:10px;">
+<form action="/invoices/livesearch" id="livesearch_form" method="post" onsubmit="new Ajax.Request('/invoices/livesearch', {asynchronous:true, evalScripts:true, onLoading:function(request){Element.show('livesearch_load')}, parameters:Form.serialize(this)}); return false;">
+
+<dl>
+	<dt style="width:150px; padding-top:8px;"><label for="terms">Search by Invoice #</label></dt>
+
+	<dd style="margin-left:150px;"><input id="terms" name="terms" type="text" /> <input class="submit_button" name="commit" type="submit" value="Go" /> <span id="livesearch_load" style="display:none;"><img alt="Loading..." src="/images/ajaxload.gif?1236292113" /></span></dd>
+</dl>
+<script type="text/javascript">
+	$('terms').focus();	
+	new Form.Element.Observer('terms', 1, function(element, value) {Invoices.LiveSearch()});
+</script>
+</form>
+
+</div>
+	<h2>Invoices - showing <span id="invoice-count">2 invoices</span></h2>
+</div>
+
+<div class="pageinner">
+
+	<div id="invoices_list">
+	
+
+	
+
+
+
+<table width="100%" cellpadding="0" cellspacing="0" class="datatable">
+	<thead>
+		<tr>
+			<td width="1%">Reference</td>
+			
+			<td>Type</td>
+			<td>Date Raised</td>
+
+			<td width="10%"></td>
+			<td>Client</td>
+			<td>Total</td>
+			<td>Due</td>
+			<td width="1%">Paid?</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		
+		<tr id="invoice_128" class="invoice_crd">
+			<td class="ref"><b><a href="/invoices/128">2</a></b></td>
+			
+			<td><a href="/invoices/128">Crd</a></td>
+			<td><a href="/invoices/128">08/04/2009</a></td>
+			<td align="center" class="grey">
+				<a href="/invoices/128"><img alt="Invoice Items" src="/images/icons/areas/invoices.png?1236292113" title="Invoice Items" /></a>
+
+				<a href="/invoices/128/edit"><img alt="Edit" src="/images/icons/edit.png?1236292113" title="Edit" /></a>
+				<a href="#" onclick="if (confirm('Warning:\n\nAre you sure you wish to delete this invoice and ALL linked data?\n\nThis option is not reversable and there is no UNDO.')) { new Ajax.Request('/invoices/128/delete', {asynchronous:true, evalScripts:true}); }; return false;"><img alt="Delete" src="/images/icons/delete.png?1236292113" title="Delete" /></a> 
+			</td>
+			
+			<td><a href="/clients/277">Daniel Quinney</a></td>
+			<td>&pound;0.00</td>
+			<td>11 days </td>
+			<td class="last" style="text-align:center;">
+				<span id="invoice_128_pay">
+
+				
+					<img alt="Tick" src="/images/icons/tick.png?1236292113" />
+				
+				</span>
+			</td>
+		</tr>
+		
+		<tr id="invoice_127" class="invoice_inv">
+			<td class="ref"><b><a href="/invoices/127">1</a></b></td>
+			
+			<td><a href="/invoices/127">Inv</a></td>
+			<td><a href="/invoices/127">08/04/2009</a></td>
+
+			<td align="center" class="grey">
+				<a href="/invoices/127"><img alt="Invoice Items" src="/images/icons/areas/invoices.png?1236292113" title="Invoice Items" /></a>
+				<a href="/invoices/127/edit"><img alt="Edit" src="/images/icons/edit.png?1236292113" title="Edit" /></a>
+				<a href="#" onclick="if (confirm('Warning:\n\nAre you sure you wish to delete this invoice and ALL linked data?\n\nThis option is not reversable and there is no UNDO.')) { new Ajax.Request('/invoices/127/delete', {asynchronous:true, evalScripts:true}); }; return false;"><img alt="Delete" src="/images/icons/delete.png?1236292113" title="Delete" /></a> 
+			</td>
+			
+			<td><a href="/clients/277">Daniel Quinney</a></td>
+			<td>&pound;0.00</td>
+			<td>11 days </td>
+
+			<td class="last" style="text-align:center;">
+				<span id="invoice_127_pay">
+				
+					<img alt="Tick" src="/images/icons/tick.png?1236292113" />
+				
+				</span>
+			</td>
+		</tr>
+		
+		
+	</tbody>
+	<tfoot>
+		<tr>
+
+			<td colspan="8"></td>
+		</tr>
+	</tfoot>
+</table>
+	</div>
+</div>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+</body>
+</html>

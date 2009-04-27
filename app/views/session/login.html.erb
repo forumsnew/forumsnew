@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew</title>
+<link href="http://dan.studioextranet.com/stylesheets/sub.css" media="screen" rel="Stylesheet" type="text/css" />
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+<style>
+#content-wrap .content .inside table tr td input#email { width:250px; ; font-weight:normal; border:1px solid #cacaca; }
+</style>
+</head>
+
+	<body>
+
+		<div id="content-wrap">
+			<div class="content">
+				
+<p><p>
+
+				<div class="wrap">
+					<div class="top-right">
+						
+
+<div class="inside">
+	<h2>Please login...</h2>
+	<% if flash[:notice] -%><div id="flash-notice"><p><%= flash[:notice] %></p></div><% end -%>
+	<% form_tag do %>
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="title user"><label for="username">Email</label></td>
+				<td><%= text_field_tag :email, params[:email] %></td>
+
+			<tr>
+			<tr>
+				<td class="title password"><label for="password">Password</label></td>
+				<td><%= password_field_tag :password, params[:password] %></td>
+			</tr>
+				
+			<tr>
+				<td></td>
+				<td><input class="submit_button" name="login" type="submit" value="Sign In &raquo;" /></td>
+			</tr>
+		
+		</table>
+		
+	<% end %>
+</div>
+<script type="text/javascript">$('username').focus();</script>
+
+					</div>
+				</div>
+				<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			</div>
+
+		</div>
+	</body>
+</html>

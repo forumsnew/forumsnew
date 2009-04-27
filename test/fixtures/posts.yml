@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  order_id: 1
+  forum_username: MyString
+  type: MyString
+  date: 2009-04-12 17:02:21
+  flag: false
+
+two:
+  user_id: 1
+  order_id: 1
+  forum_username: MyString
+  type: MyString
+  date: 2009-04-12 17:02:21
+  flag: false

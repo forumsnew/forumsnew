@@ -1,0 +1,24 @@
+<h1>Editing setting</h1>
+
+<% form_for(@setting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :site_name %><br />
+    <%= f.text_field :site_name %>
+  </p>
+  <p>
+    <%= f.label :beta %><br />
+    <%= f.check_box :beta %>
+  </p>
+  <p>
+    <%= f.label :per_post %><br />
+    <%= f.text_field :per_post %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @setting %> |
+<%= link_to 'Back', settings_path %>

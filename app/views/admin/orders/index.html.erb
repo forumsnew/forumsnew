@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Admin &#8250; Orders</title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class=""><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class="active"><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/jobs" class="jobs">Jobs</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="active">
+
+					<li class="start"><a href="/admin/orders">Orders List</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+
+<div class="pagetitle">
+	<h2>Orders</h2>
+</div>
+
+<div class="pageinner">
+
+	<div id="invoices_list">
+	
+
+	
+
+
+
+<table width="100%" cellpadding="0" cellspacing="0" class="datatable">
+	<thead>
+		<tr>
+			<td width="1%">Reference</td>
+			
+			<td>Product</td>
+			<td>Type</td>
+
+			<td width="10%"></td>
+			<td>Client</td>
+			<td>Status</td>
+			<td>Due</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @orders.each do |order| %>		
+		<tr id="invoice_<%=h order.id %>" class="invoice_inv">
+			<td class="ref"><b><%=h order.id %></b></td>
+			
+			<td><%=h order.product.title %></td>
+			<td><%=h order.product.category.title %></td>
+
+			<td align="center" class="grey">
+				<%= link_to image_tag("/images/icons/invoices.png"), admin_order_path(order) %>
+			</td>
+			
+			<td><a href="/admin/clients/<%=h order.user.id %>"><%=h order.user.forename %> <%=h order.user.surname %></a></td>
+			
+			<td><%=h order.status %></td>
+			
+
+			<td class="last"><%=h order.due %></td>
+		</tr>
+		<% end %>
+		
+	</tbody>
+	<tfoot>
+		<tr>
+
+			<td colspan="8"></td>
+		</tr>
+	</tfoot>
+</table>
+	</div>
+</div>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+<br />
+
+<%= link_to 'New order', new_order_path %>

@@ -1,0 +1,26 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Forename</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Orders</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.forename %></td>
+    <td><%=h user.surname %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.order.count %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @users %>
+
+<%= link_to 'New user', new_user_path %>

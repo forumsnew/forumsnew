@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Jobs &#8250; <%=h @order.forum_title %></title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="/stylesheets/ie6.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/admin">ForumsNew</a></h1>
+			
+				<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class=""><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class="active"><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/jobs" class="jobs">Jobs</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+			</p>
+			
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="active">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/320/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" smallcontent">
+			
+<div class="sublinks" id="sublinks">
+	<ul>
+		<li><a href="/admin/orders/<%=h @order.id %>" class="active">Dashboard</a></li>
+		<li><a href="/admin/orders/writers/<%=h @order.id %>">Assigned Writers</a></li>
+		<li><a href="/admin/orders/posts/<%=h @order.id %>">Posts & Threads</a></li>
+	</ul>
+</div>
+
+			<div class="wrap">
+				<div class="top-right">
+
+					<div class="inside">
+						
+<div class="pagetitle">
+	
+	<h2><%=h @order.forum_title %></h2>
+	<ul class="jobproperties_inline" style="margin-left:10px; margin-bottom:10px;">
+		<li class="assignment"><%=h @order.user.forename %> <%=h @order.user.surname %></li>
+		<li class="status"><span id="status_for_320"><%=h @order.status %> </span></li>
+		
+	</ul>
+</div>
+
+<div class="splitscreen clear pageinner">
+	<div class="left2">
+		<div class="box green">
+				<div class="inside">
+					
+					<h4>Recently Added Posts</h4>
+
+					<table border="0" cellspacing="0" cellpadding="5" width="100%">
+						
+						
+						<tr>
+							<td colspan="3"><em>No time sessions exist for this job</em></td>
+						</tr>
+						
+					</table>
+				</div>
+		</div>
+
+		
+	</div>
+
+	<div class="right2">
+		<h3><span><img alt="Add_page" src="/images/icons/add_page.gif?1236292113" /> <a href="#" onclick="Form.reset('notes_add_form'); Effect.toggle('add_note', 'blind', {duration:0.3}); return false;">Add Note</a></span><img alt="Note" src="/images/icons/note.png?1236292113" /> Job Notes</h3>
+		<div id="add_note" class="clear" style="display:none;">
+			<form action="/notes/new?note_item_id=320&amp;amp;note_type=job" id="notes_add_form" method="post" onsubmit="new Ajax.Request('/notes/new?note_item_id=320&amp;note_type=job', {asynchronous:true, evalScripts:true, onLoading:function(request){Element.show('notes_add_load');}, parameters:Form.serialize(this)}); return false;">
+			
+			<p class="input"><textarea cols="1" id="note_" name="note[]" rows="3"></textarea></p>
+			<dl>
+
+				<dt><input src="/images/buttons/save_note.gif?1236292113" type="image" value="Save Note" /></dt>
+				<dd><span style="display:none;" id="notes_add_load"><img alt="Loading..." src="/images/dots.gif?1236292113" /></span> or <a href="#" onclick="Form.reset('notes_add_form'); Effect.toggle('add_note', 'blind', {duration:0.3}); return false;">cancel</a></dd>
+			</dl>
+			</form>
+		</div>
+		<div id="notes">
+			<ul>
+
+	 
+	
+	<li class="no-notes">No notes have been created yet.</li>
+	
+</ul>
+
+		</div>
+	</div>
+	
+</div>
+
+
+					</div>
+				</div>
+
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		
+</body>
+
+</html>

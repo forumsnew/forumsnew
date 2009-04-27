@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Welcome</title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/admin">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class="active"><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class=""><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/jobs" class="jobs">Jobs</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/admin/settings">Settings</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+<div class="pagetitle">
+<h2>Hello <%=h User.find_by_id(session[:user_id]).forename %>!</h2>
+</div>
+<div class="app_message">
+
+	<h3>Important Notification</h3>
+	<p>You currently have <strong><%= pluralize(@flagged_posts, "post" ) %> </strong> flagged for your attention.</p>
+</div>
+
+
+
+
+
+<div class="pageinner">
+
+	<div class="splitscreen clear">
+		<div class="left3">
+			<h3><img alt="Announcement" src="/images/icons/announcement.png?1236292113" /> What's Hot?</h3>
+			
+			
+			
+			<div class="box green">
+			<div class="inside">
+				<p class="right"> <img alt="Folder" src="/images/icons/folder.gif?1236292113" />  <a href="/admin/orders	">All Orders</a></p>
+
+				<h4>Latest Orders</h4>
+				<div class="dashboard_data">
+				<table border="0" cellspacing="0" cellpadding="5" width="99%">
+					
+					<% @latest_jobs.each do |latest_job| %>
+					
+					<tr>
+						<td class="code"><%= h latest_job.id %></td>
+						<td class="date">10 Mar</td>
+						
+						<td><a href="http://dan.studioextranet.com/clients/277">Daniel Quinney</a></td>
+						<td><a href="http://dan.studioextranet.com/jobs/320">Test</a></a></td>
+					</tr>
+
+					
+					<% end %>
+					
+					
+					
+				</table>
+				</div>
+
+			</div>
+			</div>
+			
+			
+			
+			<div class="box yellow">
+			<div class="inside">
+				<p class="right"><img alt="Add" src="/images/icons/add.gif?1236292113" /> <a href="/quotes/new">New Quote</a> <img alt="Folder" src="/images/icons/folder.gif?1236292113" />  <a href="/quotes">All Quotes</a></p>
+				<h4>Currently Active Quotes</h4>
+
+				<div class="dashboard_data">
+				<table border="0" cellspacing="0" cellpadding="5" width="99%">
+					
+					<tr>
+						<td class="code">1</td>
+						<td class="date">10 Mar</td>
+						<td><a href="http://dan.studioextranet.com/clients/277">Daniel Quinney</a></td>
+						<td><a href="http://dan.studioextranet.com/quotes/144">1</a></a></td>
+
+					</tr>
+					
+					
+				</table>
+				</div>
+			</div>
+			</div>
+			
+			
+		
+			
+		</div>
+		<div class="right3">
+			<div class="notepad">
+			<h3><img alt="Planner" src="/images/icons/planner.png?1236292113" /> My Notepad</h3>
+
+			<form action="/dashboard/save_notepad" method="post" onsubmit="new Ajax.Request('/dashboard/save_notepad', {asynchronous:true, evalScripts:true, onLoading:function(request){Element.show('notepad_loading'); Element.update('notepad_status', '');}, parameters:Form.serialize(this)}); return false;">
+			<p class="aligncentre"><textarea id="notepad" name="notepad" rows="20"></textarea></p>
+			<p class="aligncentre"><input class="submit_button" name="commit" type="submit" value="Save Notes" /></p>
+			<p class="aligncentre"><b><img alt="Dots" id="notepad_loading" src="/images/dots.gif?1236292113" style="display:none;" /><span id="notepad_status" ></span></b></p>
+			</div>
+			</form>
+		</div>
+		
+	</div>
+
+	
+</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+	
+	</div>
+</body>
+</html>

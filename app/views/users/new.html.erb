@@ -1,0 +1,60 @@
+<% form_for(@user) do |f| %>
+<%= f.error_messages %>
+<fieldset>
+<legend>Enter User Details</legend>
+<div>
+<%= f.label :forename %>:
+<%= f.text_field :forename, :size => 40 %>
+</div>
+<div>
+<%= f.label :surname %>:
+<%= f.text_field :surname, :size => 40 %>
+</div>
+<div>
+<%= f.label :email %>:
+<%= f.text_field :email, :size => 40 %>
+</div>
+<div>
+<%= f.label :address1 %>:
+<%= f.text_field :address1, :size => 40 %>
+</div>
+<div>
+<%= f.label :address2 %>:
+<%= f.text_field :address2, :size => 40 %>
+</div>
+<div>
+<%= f.label :town %>:
+<%= f.text_field :town, :size => 40 %>
+</div>
+<div>
+<%= f.label :county %>:
+<%= f.text_field :county, :size => 40 %>
+</div>
+<div>
+<%= f.label :postcode %>:
+<%= f.text_field :postcode, :size => 40 %>
+</div>
+<div>
+<%= f.label :country %>:
+<%= f.text_field :country, :size => 40 %>
+</div>
+<div>
+<%= f.label :paypal %>:
+<%= f.text_field :paypal, :size => 40 %>
+</div>
+<div>
+<%= f.hidden_field :rows, :value => "10" %>
+</div>
+<div>
+<%= f.label :user_password, 'Password' %>:
+<%= f.password_field :password, :size => 40 %>
+</div>
+<div>
+<%= f.label :user_password_confirmation, 'Confirm' %>:
+<%= f.password_field :password_confirmation, :size => 40 %>
+</div>
+<div>
+<%= f.submit "Add User" , :class => "submit" %>
+</div>
+</fieldset>
+<% end %>

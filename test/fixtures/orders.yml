@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_id: 1
+  ip_address: MyString
+  card_type: MyString
+  card_expires_on: 2009-04-08
+
+two:
+  product_id: 1
+  ip_address: MyString
+  card_type: MyString
+  card_expires_on: 2009-04-08

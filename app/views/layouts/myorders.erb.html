@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; My Orders</title>
+<!---desklamp stylesheets -->
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/" class="dashboard">Dashboard</a></li>
+				
+				<li class=""><a href="/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/quotes" class="quotes">Quotes</a></li>
+				<li class="active"><a href="/jobs" class="jobs">Jobs</a></li>
+
+				<li class=""><a href="/invoices" class="invoices">Invoices</a></li>
+				<li class=""><a href="http://www.getdesklamp.com/help" class="help">Help</a></li>
+			</ul>
+			<p>
+				<a href="http://dan.studioextranet.com/profile">My Profile</a> | 
+				<a href="/settings">Settings</a> | 
+				<a href="/account">Account Centre</a> | 
+				<a href="/users">Users</a> | 
+				<a href="http://dan.studioextranet.com/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="active">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+<div class="pagetitle">
+<div class="floatright" style="margin-right:10px;">
+<form action="/jobs/livesearch" id="livesearch_form" method="post" onsubmit="new Ajax.Request('/jobs/livesearch', {asynchronous:true, evalScripts:true, onLoading:function(request){Element.show('livesearch_load')}, parameters:Form.serialize(this)}); return false;">
+
+<dl>
+	<dt style="width:150px; padding-top:8px;"><label for="terms">Search by Job Title</label></dt>
+
+	<dd style="margin-left:150px;"><input id="terms" name="terms" type="text" /> <input class="submit_button" name="commit" type="submit" value="Go" /> <span id="livesearch_load" style="display:none;"><img alt="Loading..." src="/images/ajaxload.gif?1236292113" /></span></dd>
+</dl>
+<script type="text/javascript">
+	$('terms').focus();	
+	new Form.Element.Observer('terms', 1, function(element, value) {Jobs.LiveSearch()});
+</script>
+</form>
+
+</div>
+
+	<h2>Jobs - showing <span id="job-count">1 job</span></h2>
+</div>
+	
+
+<div class="pageinner">
+	<div id="jobs_list">
+	
+
+	
+
+
+
+<table width="100%" cellpadding="0" cellspacing="0" class="datatable">
+	<thead>
+		<tr>
+			<td width="1%">Reference</td>
+			<td>Title</td>
+			<td width="10%"></td>
+
+			<td>Client</td>
+			<td>Contact</td>
+			<td>Status</td>
+			<td>Type</td>
+			
+		</tr>
+	</thead>
+	<tbody>
+
+		
+		<tr id="job_320">
+			<td class="ref"><b>2</b></td>
+			<td><a href="http://dan.studioextranet.com/jobs/320">Test</a></td>
+			<td align="center" class="grey">
+				<a href="/jobs/time_tracking/320"><img alt="Time Tracking" src="/images/icons/clock.png?1236292113" title="Time Tracking" /></a>
+				<a href="/jobs/convert_to_invoice/320"><img alt="Convert to Invoice" src="/images/icons/areas/invoices.png?1236292113" title="Convert to Invoice" /></a>
+				<a href="/jobs/files/320"><img alt="Files" src="/images/icons/folder_open.gif?1236292113" title="Files" /></a>	
+				<a href="/jobs/edit/320"><img alt="Edit" src="/images/icons/edit.png?1236292113" title="Edit" /></a>
+
+				<a href="#" onclick="if (confirm('Warning:\n\nAre you sure you wish to delete this job and ALL linked data?\n\nThis option is not reversable and there is no UNDO.')) { new Ajax.Request('/jobs/delete/320', {asynchronous:true, evalScripts:true}); }; return false;"><img alt="Delete" src="/images/icons/delete.png?1236292113" title="Delete" /></a> 
+			</td>
+			<td><a href="http://dan.studioextranet.com/clients/277">Daniel Quinney</a></td>
+			<td>m m</td>
+			<td>Completed</td>
+			<td class="last">Other</td>
+			
+		</tr>
+
+		
+		
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+	</tfoot>
+</table>
+	</div>
+	
+</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  members: 1
+  posts: 1
+  threads: 1
+  price: 9.99
+
+two:
+  title: MyString
+  description: MyText
+  members: 1
+  posts: 1
+  threads: 1
+  price: 9.99

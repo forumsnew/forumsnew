@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; My Profile</title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/sub.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/admin">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>
+				
+				<li class=""><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/jobs" class="jobs">Jobs</a></li>
+
+				<li class=""><a href="/admin/invoices" class="invoices">Invoices</a></li>
+				<li class=""><a href="http://www.getdesklamp.com/help" class="help">Help</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+<div class="pagetitle">
+	<h2>My Profile</h2>
+</div>
+<div class="pageinner">
+
+<% if flash[:notice] -%><div id="flash-notice"><p><%= flash[:notice] %></p></div><% end -%>
+
+	
+	<% form_for(@user, :url => { :action => :update } ) do |f| %>
+	<div class="splitscreen">
+<%= f.error_messages %>
+	<div class="left">
+		<h4><img alt="User_male" src="/images/icons/user_male.png?1236292113" /> Personal Details</h4>
+		<p class="grey">Your details you provide here are used to identify you to other users of the system.</p>
+		<dl>	
+			<dt><%= f.label :forename %></dt>
+			<dd><%= f.text_field :forename %></dd>
+			
+			<dt><%= f.label :surname %></dt>
+			<dd><%= f.text_field :surname %></dd>
+
+		</dl>
+		
+		<h4><img alt="Contact" src="/images/icons/contact.png?1236292113" /> Contact Details</h4>
+		<p class="grey">Please enter your full postal address.</p>
+		<dl>
+			<dt><%= f.label :address1 %></dt>
+			<dd><%= f.text_field :address1 %></dd>
+			
+			<dt><%= f.label :address2 %></dt>
+			<dd><%= f.text_field :address2 %></dd>
+			
+			<dt><%= f.label :town %></dt>
+			<dd><%= f.text_field :town %></dd>
+			
+			<dt><%= f.label :county %></dt>
+			<dd><%= f.text_field :county %></dd>
+			
+			<dt><%= f.label :postcode %></dt>
+			<dd><%= f.text_field :postcode, :size =>'13' %></dd>
+		</dl>
+	</div>
+	<div class="right">
+		
+		
+		<h4><img alt="Config" src="/images/icons/config.gif?1236292113" /> Preferences</h4>
+		<p class="grey">The preferences below allow you to modify various options which will adjust the way to use your account.</p>
+		<dl>
+			<dt><%= f.label :rows %></dt>
+			<dd><p class="grey"><%= f.text_field :rows, :size => '4' %></p></dd>
+		</dt>
+		
+		<dl>
+			<dt><%= f.label :paypal, 'PayPal Email' %></dt>
+			<dd><p class="grey"><%= f.text_field :paypal %></p></dd>
+		</dt>
+		
+		
+		
+	</div>
+
+	<div class="clear"></div>
+</div>
+<hr class=" bold" />
+<p class="alignright"><input class="submit_button" name="commit" type="submit" value="Save My Profile" /></p>
+
+<% end %>
+</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Clients &#8250; <%=h @user.forename %> <%=h @user.surname %></title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="/stylesheets/ie6.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/admin">ForumsNew</a></h1>
+			
+				<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class="active"><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="active">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/277/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+<div class="sublinks" id="sublinks">
+	<ul>
+		<li><a href="/clients/277" class="active">Dashboard</a></li>
+		<li><a href="/clients/contacts/277">Contacts</a></li>
+		<li><a href="/clients/hosting/277">Hosting &amp; Domains</a></li>
+		<li><a href="/clients/notices/277">Notices</a></li>
+		<li><a href="/clients/notes/277">Notes</a></li>
+		<li><a href="/clients/activity/277">Full Activity</a></li>
+		<li><a href="/admin/clients/<%=h @user.id %>/edit">Edit</a></li>
+		<li><a href="/jobs/index/277">Jobs</a></li>
+		<li><a href="/quotes/index/277">Quotes</a></li>
+		<li><a href="/invoices/index/277">Invoices</a></li>
+	</ul>
+</div>
+
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+<div class="pagetitle">
+	<h2>Daniel Quinney </h2>
+	
+	
+	
+</div>
+
+
+
+<div class="splitscreen clear pageinner">
+	<div class="left2">
+		<h3><img alt="Announcement" src="/images/icons/announcement.png?1236292113" /> What's Hot?</h3>
+		
+		
+			<div class="box green">
+				<div class="inside">
+					<h4>Latest Orders</h4>
+					<table border="0" cellspacing="0" cellpadding="5" width="100%">
+						
+					
+						
+						
+					</table>
+				</div>
+			</div>
+		
+		
+		
+			<div class="box yellow">
+				<div class="inside">
+
+					
+					<h4>Latest Jobs</h4>
+					<table border="0" cellspacing="0" cellpadding="5" width="100%">
+		<% @latest_jobs.each do |latest_jobs| %>					
+						<tr>
+							<td class="code"><%=h latest_jobs.order.id %></td>
+
+							<td class="date"><a href="/admin/orders/<%=h latest_jobs.order.id %>"><%=h latest_jobs.order.forum_title %></a></td>
+							<td><a href="http://dan.studioextranet.com/quotes/144">1</a></a></td>
+						</tr>
+			<% end %>				
+						
+					</table>
+				</div>
+			</div>
+		
+		
+		
+		
+	</div>
+	<div class="right2">
+
+		<h3> Client Notes</h3>
+		
+		<div id="notes">
+			<ul>
+	 
+	
+	<li class="no-notes">No notes have been created yet.</li>
+
+	
+</ul>
+
+		</div>
+	</div>
+	
+</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+
+			
+		</div>
+	
+	
+		
+</body>
+</html>

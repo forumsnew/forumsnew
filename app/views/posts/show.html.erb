@@ -1,0 +1,33 @@
+<p>
+  <b>User:</b>
+  <%=h @post.user_id %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%=h @post.order_id %>
+</p>
+
+<p>
+  <b>Forum username:</b>
+  <%=h @post.forum_username %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @post.type %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @post.date %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%=h @post.flag %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

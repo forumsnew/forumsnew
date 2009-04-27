@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Orders &#8250; Add New Order</title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="/stylesheets/ie6.css?1236292113" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/admin">ForumsNew</a></h1>
+			
+				<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class=""><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class="active"><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+			</p>
+			
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="active">
+					<li class="start"><a href="/admin/orders">Orders List</a></li>
+
+					<li><a href="/admin/orders/new">Add New Order</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/invoices">Invoices List</a></li>
+					
+					<li><a href="/invoices/receive_payments">Receive Payments</a></li>
+					<li><a href="/invoices/320/raise_invoice">Raise Invoice</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+<div class="pagetitle">
+	<h2>Add New Order</h2>
+</div>
+<div class="pageinner">
+<% form_for(@order, :url => { :action => :new } ) do |f| %>
+	<%= f.error_messages %>
+
+
+
+
+<div class="fullform">
+
+
+<h4><img alt="" src="/images/icons/sitemap.png" /> Job Details</h4>
+<p class="grey">Please enter any job details. Your job reference number should be numeric and unique, you can use the bulb icon to insert the next available number. You can change the status, type &amp; current assignment fields at any time from your job dashboard when the job is created.</p>
+<dl>	
+	<dt><%= f.label :forum_title, 'Forum Name' %></dt>
+	<dd><%= f.text_field :forum_title %></dd>
+
+	
+	<dt><%= f.label :forum_url, 'Forum URL' %></dt>
+	<dd><%= f.text_field :forum_url %></dd>
+	
+	<dt><%= f.label :product_id %></dt>
+	<dd><%= f.collection_select(:product_id, Product.find(:all), :id, :title) %></dd>
+	
+	<dt><%= f.label :card_type %></dt>
+	<dd><%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %></dd>
+	
+	<dt><%= f.label :card_number, 'Credit Card Number' %></dt>
+	<dd><%= f.text_field :card_number %></dd>
+	
+	<dt> <%= f.label :card_verification, "Card Security Code (CVV2)" %></dt>
+	<dd> <%= f.text_field :card_verification %></dd>
+	
+	<dt> <%= f.label :card_expires_on, 'Expiration Date' %></dt>
+	<dd><%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => false %></dd>
+	
+	<dt> <%= f.label :coupon_code, 'Coupon' %></dt>
+	<dd><%= f.text_field :coupon_code %></dd>
+	
+	
+	
+</dl>
+
+</div>
+
+	<hr class="bold clear" />
+	<p class="alignright">
+		 <%= f.submit 'Create' %>
+	</p>
+<% end %>
+<div style="clear:both"></div>
+</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+</body>
+</html>

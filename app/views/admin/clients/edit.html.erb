@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ForumsNew &#8250; Admin &#8250; Clients &#8250; Edit &#8250; <%=h @user.forename %> <%=h @user.surname %></title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+}</style>
+<!---desklamp icon -->
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/">ForumsNew</a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/admin" class="dashboard">Dashboard</a></li>				
+				<li class="active"><a href="/admin/clients" class="clients">Clients</a></li>
+				<li class=""><a href="/admin/orders" class="quotes">Orders</a></li>
+				<li class=""><a href="/admin/transactions" class="invoices">Transactions</a></li>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+
+			</p>
+			<div class="subnav">
+				<ul class="active">
+					<li class="start"><a href="/admin/clients">Client List</a></li>
+					<li><a href="/admin/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">Add New Job</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/admin/orders">Orders List</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+	
+		<div id="content" class=" ">
+			
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+
+<div class="pagetitle">
+	<h2>Edit <%=h @user.forename %> <%=h @user.surname %></h2>
+</div>
+<div class="pageinner">
+
+<% form_for(@user, :url => { :action => :update } ) do |f| %>
+	<%= f.error_messages %>
+
+
+<div class="splitscreen">
+	<div class="left">
+		<h4><img alt="Abs" src="/images/icons/abs.png?1236292113" /> Client Information</h4>
+		<p class="grey">Information about this client and their relationship to the company. The reference number should be a number and unique, the next available number is shown automatically.</p>
+		<dl>
+			<dt><%= f.label :id, 'Reference' %></dt>
+			<dd><%= f.text_field :id, :size=>'7' %></dd>
+
+			<dt><%= f.label :forename %></dt>
+			<dd><%= f.text_field :forename %></dd>
+			
+			<dt><%= f.label :surname %></dt>
+			<dd><%= f.text_field :surname %></dd>
+		
+		</dl>
+		
+		<h4><img alt="Building" src="/images/icons/building.png?1236292113" /> Address</h4>
+		<p class="grey">Enter the postal address for this client</p>
+
+		<dl>
+			<dt><%= f.label :address1, 'Address 1' %></dt>
+			<dd><%= f.text_field :address1 %></dd>
+			
+			<dt><%= f.label :address2, 'Address 2' %></dt>
+			<dd><%= f.text_field :address2 %></dd>
+			
+			<dt><%= f.label :town, 'Town/City' %></dt>
+			<dd><%= f.text_field :town %></dd>
+			
+			<dt><%= f.label :county %></dt>
+			<dd><%= f.text_field :county %></dd>
+			
+			<dt><%= f.label :postcode %></dt>
+			<dd><%= f.text_field :postcode %></dd>
+			
+			<dt><%= f.label :country %></dt>
+			<dd><%= f.text_field :country %></dd>
+		</dl>
+	</div>
+	<div class="right">
+		<h4><img alt="Phone" src="/images/icons/phone.png?1236292113" /> Contact Details</h4>
+		<p class="grey">Enter general contact details for this client</p>
+		<dl>
+			<dt><%= f.label :email %></dt>
+			<dd><%= f.text_field :email %></dd>
+		</dl>
+		
+		<h4><img alt="Abs" src="/images/icons/abs.png?1236292113" /> Miscellaneous</h4>
+
+		<p class="grey">Clients can belong to other clients. You may have clients which you deal with however the relationship is through another company.</p>
+		<dl>
+			<dt><%= f.label :paypal %></dt>
+			<dd><%= f.text_field :paypal %></dd>
+			
+			<dt><%= f.label :rows %></dt>
+			<dd><%= f.text_field :rows, :size => '7'%></dd>
+			
+			<dt><%= f.label :admin %></dt>
+			<dd><%= f.check_box :admin %></dd>
+			
+			<dt><%= f.label :writer %></dt>
+			<dd><%= f.check_box :writer %></dd>
+			
+		</dl>
+		
+	</div>
+
+	<hr class="bold clearme" />
+</div>
+
+
+	<p class="alignright">
+		<input class="submit_button" name="save_contact" type="submit" value="Save Client" />
+	</p>
+<% end %>
+<div style="clear:both"></div>
+</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		<div id="right">
+			
+		</div>
+	</div>
+</body>
+</html>

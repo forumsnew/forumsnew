@@ -1,0 +1,18 @@
+<p>
+  <b>Site name:</b>
+  <%=h @setting.site_name %>
+</p>
+
+<p>
+  <b>Beta:</b>
+  <%=h @setting.beta %>
+</p>
+
+<p>
+  <b>Per post:</b>
+  <%=h @setting.per_post %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%=h @settings.site_name %> &#8250; Jobs</title>
+<link href="http://dan.studioextranet.com/stylesheets/main.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/merge_this.css" media="screen" rel="Stylesheet" type="text/css" />
+<link href="http://dan.studioextranet.com/stylesheets/print.css" media="print" rel="Stylesheet" type="text/css" />
+
+<!--[if IE 6]>
+<link href="http://dan.studioextranet.com/stylesheets/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<style type="text/css">.container { 
+	padding:0 5%; 
+	
+	#content select {padding:3px;border:1px solid #bebebe;font-family:Tahoma, Verdana, sans-serif;font-size:11px;}
+	
+}</style>
+
+<link rel="icon" href="/images/appicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<div id="header" >
+
+			
+			<h1 class="logo"><a href="/"><%=h @settings.site_name %> </a></h1>
+			
+			<ul class="main-nav">
+				<li class=""><a href="/" class="dashboard">Dashboard</a></li>					
+				<li class=""><a href="/orders" class="quotes">Orders</a></li>
+				<% if is_writer(@current_user) %> 
+					<li class="active"><a href="/jobs" class="quotes">Jobs</a></li>
+					<li><a href="/payments" class="quotes">Payments</a></li>
+				 <% end %>
+				<li class=""><a href="/support" class="help">Support</a></li>
+				<% if is_admin(@current_user) %> <li class=""><a href="/admin" class="quotes">Administration</a></li> <% end %>
+			</ul>
+			<p>
+				<a href="/profile">My Profile</a> | 
+				<a href="/logout" onclick="return confirm('Are you sure you wish to logout?');">Logout</a>
+			</p>
+			<div class="subnav">
+				<ul class="">
+					<li class="start"><a href="/clients">Client List</a></li>
+					<li><a href="/clients/new">Add New Client</a></li>
+				</ul>
+				<ul  class="active">
+					<li class="start"><a href="/jobs">Jobs List</a></li>
+
+					<li><a href="/jobs/new">New Jobs</a></li>
+				</ul>
+				<ul class="">
+					<li class="start"><a href="/quotes">Quotes List</a></li>
+					<li><a href="/quotes/new">Add New Quote</a></li>
+				</ul>
+				<ul class="">
+
+					<li class="start"><a href="/orders">Orders List</a></li>
+					<li><a href="/orders/new">Add New Order</a></li>
+				</ul>
+			</div>
+			<div class="clearme"></div>
+		</div>
+
+
+
+
+	
+		<div id="content" class=" smallcontent">
+			<div class="sublinks" id="sublinks">
+	<ul>
+		<li><a href="/jobs" class="active">Jobs</a></li>
+		<li><a href="/jobs/new">New Jobs</a></li>
+	</ul>
+</div>
+			<div class="wrap">
+				<div class="top-right">
+					<div class="inside">
+						
+
+
+<div class="pagetitle">
+	<h2>Jobs</h2>
+</div>
+
+<div class="pageinner">
+
+	<div id="invoices_list">
+	
+
+	
+
+
+<table width="100%" cellpadding="0" cellspacing="0" class="datatable">
+	<thead>
+		<tr>
+			<td width="1%">Reference</td>
+			
+			<td>Product</td>
+			<td>Forum Title</td>
+
+			<td width="10%"></td>
+			<td>Threads</td>
+			<td>Posts</td>
+			<td>Status</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @participants.each do |participant| %>		
+		<tr id="invoice_<%=h participant.order.id %>" class="invoice_inv">
+			<td class="ref"><b><%=h participant.order.id %></b></td>
+			
+			<td><%=h participant.order.product.title %></td>
+			<td><%=h participant.order.forum_title %></td>
+
+			<td align="center" class="grey">
+				<%= link_to image_tag("/images/icons/invoices.png"), :action => "show", :id => participant.order.id %>
+			</td>
+			
+			
+			<td><%=h participant.order.posts.count %></td>
+			<td><%=h participant.order.posts.count %></td>
+			<td class="last"><%=h participant.order.status %></td>
+		</tr>
+		<% end %>
+		
+	</tbody>
+	<tfoot>
+		<tr>
+
+			<td colspan="8"></td>
+		</tr>
+	</tfoot>
+</table>
+	</div>
+</div>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom"><div class="bottom-left"><div class="bottom-right"></div></div></div>
+			
+		</div>
+	
+	
+		
+	
+		<div id="right">
+			
+	<div class="sidetitle">
+		<h3>Frequently Asked Questions</h3>
+	</div>
+	<p>
+		<b>How many users can I add?</b><br />
+		You can have as many users as you like - there is no limit for the number of users.
+	</p>
+
+	<p style="margin-top:10px">
+		<b>What does the <img alt="Admin" src="/images/icons/admin.png?1236292113" /> icon mean?</b><br />
+		This is the account which is currently assigned as the account administrator. This person can access the account area of settings and manage the account.
+	</p>
+	
+	
+
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<p>
+  <b>Code:</b>
+  <%=h @coupon.code %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @coupon.discount %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @coupon.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+<%= link_to 'Back', coupons_path %>
